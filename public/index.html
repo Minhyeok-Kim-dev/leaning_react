@@ -27,17 +27,78 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+    <!-- 
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     -->
+    <div id="react-container">
+
+    </div>
+    <!-- 
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+     -->
+    
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.1/react-dom.js"></script>
+
+    <script>
+      //# 4.6 데이터로 엘리먼트 생성
+      let items = ["A", "B", "C", "D", "E"];
+
+      // var dish =
+      // React.createElement("section", {id: "baked-salmon"},
+      //   React.createElement("h1", null, "구운연어"),
+      //   React.createElement("ul", {"className": "ingredients"},
+      //     items.map((ingredient, i) => 
+      //       React.createElement("li", { key: i }, ingredient)
+      //     )
+      //     // React.createElement("li", null, "연어 500그램"),
+      //     // React.createElement("li", null, "잣 1컵"),
+      //     // React.createElement("li", null, "버터 상추 2컵"),
+      //     // React.createElement("li", null, "옐로 스쿼시 1개"),
+      //     // React.createElement("li", null, "올리브 오일 1/2컵"),
+      //     // React.createElement("li", null, "마늘 3쪽")
+      //   )
+      // );
+      // ReactDOM.render(dish, document.getElementById('react-container'));
+
+      //# 4.7 리액트 컴포넌트
+      //# 4.7.1 React.createClass
+      // const IngredientsList = React.createClass({
+      //   displayName: "IngredientsList",
+      //   renderListItem(ingredient, i) {
+      //     return React.createElement("li", {key : i}, ingredient)
+      //   },
+      //   render() {
+      //     return React.createElement("ul", {className: "ingredients"},
+      //       this.props.items.map(this.renderListItem)
+      //     )
+      //   }
+      // });
+      
+      // ReactDOM.render(
+      //   React.createElement(IngredientsList, {items}, null),
+      //    document.getElementById('react-container')
+      // );
+
+      //# 4.7.2 React.Component
+      class IngredientsList extends React.Component {
+        renderListItem(ingredient, i) {
+          return React.createElement("li", {key : i}, ingredient)
+        }
+
+        render() {
+          return React.createElement("ul", {className: "ingredients"},
+            this.props.items.map(this.renderListItem)
+          )
+        }
+      }
+
+      ReactDOM.render(
+        React.createElement(IngredientsList, {items}, null),
+         document.getElementById('react-container')
+      );
+    </script>
   </body>
 </html>
