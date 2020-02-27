@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/learning_react/static/css/main.d1b05096.chunk.css",
+    "main.js": "/learning_react/static/js/main.b31798ec.chunk.js",
+    "main.js.map": "/learning_react/static/js/main.b31798ec.chunk.js.map",
+    "runtime-main.js": "/learning_react/static/js/runtime-main.a125c926.js",
+    "runtime-main.js.map": "/learning_react/static/js/runtime-main.a125c926.js.map",
+    "static/js/2.69567d2c.chunk.js": "/learning_react/static/js/2.69567d2c.chunk.js",
+    "static/js/2.69567d2c.chunk.js.map": "/learning_react/static/js/2.69567d2c.chunk.js.map",
+    "index.html": "/learning_react/index.html",
+    "precache-manifest.990c85512eacd25f2210e53f4d4b6a45.js": "/learning_react/precache-manifest.990c85512eacd25f2210e53f4d4b6a45.js",
+    "service-worker.js": "/learning_react/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/learning_react/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.69567d2c.chunk.js.LICENSE.txt": "/learning_react/static/js/2.69567d2c.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/learning_react/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a125c926.js",
+    "static/js/2.69567d2c.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.b31798ec.chunk.js"
+  ]
+}
