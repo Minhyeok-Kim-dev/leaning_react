@@ -39,10 +39,12 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
      -->
     
-    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
-    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.1/react-dom.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16.13.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
-    <script>
+
+    <script type="text/babel">
       //# 4.6 데이터로 엘리먼트 생성
       let items = ["A", "B", "C", "D", "E"];
 
@@ -83,22 +85,146 @@
       // );
 
       //# 4.7.2 React.Component
-      class IngredientsList extends React.Component {
-        renderListItem(ingredient, i) {
-          return React.createElement("li", {key : i}, ingredient)
-        }
+      // 클래스 정의
+      // class IngredientsList extends React.Component {
+      //   renderListItem(ingredient, i) {
+      //     return React.createElement("li", {key : i}, ingredient)
+      //   }
 
-        render() {
-          return React.createElement("ul", {className: "ingredients"},
-            this.props.items.map(this.renderListItem)
-          )
-        }
-      }
+      //   render() {
+      //     return React.createElement("ul", {className: "ingredients"},
+      //       this.props.items.map(this.renderListItem)
+      //     )
+      //   }
+      // }
 
-      ReactDOM.render(
-        React.createElement(IngredientsList, {items}, null),
-         document.getElementById('react-container')
-      );
+      // 상태가 없는 함수형 컴포넌트
+      // const IngredientsList = props => 
+      //   React.createElement("ul", {className: "ingredients"},
+      //     props.items.map((ingredient, i) =>
+      //       React.createElement("li", {key : i}, ingredient)
+      //     )
+      //   );
+
+      // const IngredientsList = ({items}) =>
+      //   React.createElement("ul", {className: "ingredients"},
+      //     items.map((ingredient, i) => 
+      //       React.createElement("li", {key : i}, ingredient)
+      //     )
+      //   );
+
+      // ReactDOM.render(
+      //   React.createElement(IngredientsList, {items}, null),
+      //    document.getElementById('react-container')
+      // );
+
+      //# 4.9 Factory
+      // const { render } = ReactDOM;
+      // const IngredientsList = ({ list }) => 
+      //   React.createElement("ul", null,
+      //     list.map((ingredient, i) =>
+      //       React.createElement("li", {key : i}, ingredient)
+      //     )  
+      //   );
+
+      // const Ingredients = React.createFactory(IngredientsList);
+
+      // const list = [
+      //   "A",
+      //   "B",
+      //   "C",
+      //   "D",
+      //   "E",
+      //   "F"
+      // ];
+
+      // render(
+      //   Ingredients({list}),
+      //   document.getElementById("react-container")
+      // )
+
+      // 5.3 JSX
+      
+      // const data = [
+      //   {
+      //     "name": "Baked Salmon",
+      //     "ingredients": [
+      //       {"name": "연어", "amount": 500, "measurement": "그램"},
+      //       {"name": "잣", "amount": 1, "measurement": "컵"},
+      //       {"name": "버터 상추", "amount": 2, "measurement": "컵"},
+      //       {"name": "옐로 스쿼시", "amount": 1, "measurement": "개"},
+      //       {"name": "올리브 오일", "amount": 0.5, "measurement": "컵"},
+      //       {"name": "마늘", "amount": 3, "measurement": "쪽"}
+      //     ],
+      //     "steps": [
+      //       "오븐을 350도로 예열한다.",
+      //       "유리 베이킹 그릇에 올리브 오일을 두른다.",
+      //       "연어, 마늘, 잣을 그릇에 담는다.",
+      //       "오븐에서 15분간 익힌다.",
+      //       "옐로 스쿼시를 추가하고 다시 30분간 오븐에서 익힌다.",
+      //       "오븐에서 그릇을 꺼내서 15분간 식힌 다음 상추를 곁들여서 내놓는다."
+      //     ]
+      //   }, {
+      //     "name": "Fish Taco",
+      //     "ingredients": [
+      //       {"name": "흰살생선", "amount": 500, "measurement": "그램"},
+      //       {"name": "치즈", "amount": 1, "measurement": "컵"},
+      //       {"name": "아이스버그 상추", "amount": 2, "measurement": "컵"},
+      //       {"name": "토마토", "amount": 2, "measurement": "개(큰 것)"},
+      //       {"name": "또띠야", "amount": 3, "measurement": "개"}
+      //     ],
+      //     "steps": [
+      //       "생산을 그릴에 익힌다.",
+      //       "또띠야 3장 위에 생선을 얹는다.",
+      //       "또띠야에 얹은 생선 위에 상추, 토마토, 치즈를 얹는다."
+      //     ]
+      //   }
+      // ]
+      
+      // // 조리법 하나를 표현 (상태가 없는 함수형 컴포넌트)
+      // const Recipe = ({name, ingredients, steps}) => (
+      //   <section id={name.toLowerCase().replace(/ /g, "-")}>
+      //     <h1>{name}</h1>
+      //     <ul className="ingredients">
+      //       {
+      //         ingredients.map((ingredient, i) =>
+      //           <li key={i}>{ingredient.name}</li>
+      //         )
+      //       }
+      //     </ul>
+      //     <section className="instructions">
+      //       <h2>조리 절차</h2>
+      //       {
+      //         steps.map((step, i) =>
+      //           <p key={i}>{step}</p>
+      //         )
+      //       }
+      //     </section>
+      //   </section>
+      // )
+
+      // // 조리법으로 이루어진 메뉴늘 표현 (상태가 없는 함수형 컴포넌트)
+      // const Menu = ({title, recipes}) => (
+      //   <article>
+      //     <header>
+      //       <h1>{title}</h1>
+      //     </header>
+      //     <div className="recipes">
+      //         {
+      //           recipes.map((recipe, i) =>
+      //             <Recipe key={i} {...recipe} />
+      //           )
+      //         }
+      //     </div>
+      //   </article>
+      // )
+
+   
+      // // ReactDOM.render를 호출해서 Menu를 현재의 DOM 안에 렌더링
+      // ReactDOM.render(
+      //   <Menu recipes={data} title="맛있는 조리법" />,
+      //   document.getElementById("react-container")
+      // )
     </script>
   </body>
 </html>
