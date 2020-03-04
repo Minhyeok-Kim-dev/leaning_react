@@ -1,1 +1,180 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/learning_react/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/learning_react/logo192.png"/><link rel="manifest" href="/learning_react/manifest.json"/><title>React App</title><link href="/learning_react/static/css/main.d1b05096.chunk.css" rel="stylesheet"></head><body><div id="root"></div><div id="react-container"></div><script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script><script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.1/react-dom.js"></script><script>let items=["A","B","C","D","E"];class IngredientsList extends React.Component{renderListItem(e,t){return React.createElement("li",{key:t},e)}render(){return React.createElement("ul",{className:"ingredients"},this.props.items.map(this.renderListItem))}}ReactDOM.render(React.createElement(IngredientsList,{items:items},null),document.getElementById("react-container"))</script><script>!function(e){function r(r){for(var n,a,l=r[0],i=r[1],c=r[2],p=0,s=[];p<l.length;p++)a=l[p],Object.prototype.hasOwnProperty.call(o,a)&&o[a]&&s.push(o[a][0]),o[a]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,c||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=a(a.s=t[0]))}return e}var n={},o={1:0},u=[];function a(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,a),t.l=!0,t.exports}a.m=e,a.c=n,a.d=function(e,r,t){a.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},a.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,r){if(1&r&&(e=a(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(a.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)a.d(t,n,function(r){return e[r]}.bind(null,n));return t},a.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return a.d(r,"a",r),r},a.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},a.p="/learning_react/";var l=this.webpackJsonplearning_react=this.webpackJsonplearning_react||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var c=0;c<l.length;c++)r(l[c]);var f=i;t()}([])</script><script src="/learning_react/static/js/2.69567d2c.chunk.js"></script><script src="/learning_react/static/js/main.b31798ec.chunk.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/learning_react/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/learning_react/logo192.png"/><link rel="manifest" href="/learning_react/manifest.json"/><title>React App</title><link href="/learning_react/static/css/main.fc860df6.chunk.css" rel="stylesheet"></head><body><div id="root"></div><div id="react-container"></div><script crossorigin src="https://unpkg.com/react@16.13.0/umd/react.development.js"></script><script crossorigin src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js"></script><script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script><script type="text/babel">//# 4.6 데이터로 엘리먼트 생성
+      let items = ["A", "B", "C", "D", "E"];
+
+      // var dish =
+      // React.createElement("section", {id: "baked-salmon"},
+      //   React.createElement("h1", null, "구운연어"),
+      //   React.createElement("ul", {"className": "ingredients"},
+      //     items.map((ingredient, i) => 
+      //       React.createElement("li", { key: i }, ingredient)
+      //     )
+      //     // React.createElement("li", null, "연어 500그램"),
+      //     // React.createElement("li", null, "잣 1컵"),
+      //     // React.createElement("li", null, "버터 상추 2컵"),
+      //     // React.createElement("li", null, "옐로 스쿼시 1개"),
+      //     // React.createElement("li", null, "올리브 오일 1/2컵"),
+      //     // React.createElement("li", null, "마늘 3쪽")
+      //   )
+      // );
+      // ReactDOM.render(dish, document.getElementById('react-container'));
+
+      //# 4.7 리액트 컴포넌트
+      //# 4.7.1 React.createClass
+      // const IngredientsList = React.createClass({
+      //   displayName: "IngredientsList",
+      //   renderListItem(ingredient, i) {
+      //     return React.createElement("li", {key : i}, ingredient)
+      //   },
+      //   render() {
+      //     return React.createElement("ul", {className: "ingredients"},
+      //       this.props.items.map(this.renderListItem)
+      //     )
+      //   }
+      // });
+      
+      // ReactDOM.render(
+      //   React.createElement(IngredientsList, {items}, null),
+      //    document.getElementById('react-container')
+      // );
+
+      //# 4.7.2 React.Component
+      // 클래스 정의
+      // class IngredientsList extends React.Component {
+      //   renderListItem(ingredient, i) {
+      //     return React.createElement("li", {key : i}, ingredient)
+      //   }
+
+      //   render() {
+      //     return React.createElement("ul", {className: "ingredients"},
+      //       this.props.items.map(this.renderListItem)
+      //     )
+      //   }
+      // }
+
+      // 상태가 없는 함수형 컴포넌트
+      // const IngredientsList = props => 
+      //   React.createElement("ul", {className: "ingredients"},
+      //     props.items.map((ingredient, i) =>
+      //       React.createElement("li", {key : i}, ingredient)
+      //     )
+      //   );
+
+      // const IngredientsList = ({items}) =>
+      //   React.createElement("ul", {className: "ingredients"},
+      //     items.map((ingredient, i) => 
+      //       React.createElement("li", {key : i}, ingredient)
+      //     )
+      //   );
+
+      // ReactDOM.render(
+      //   React.createElement(IngredientsList, {items}, null),
+      //    document.getElementById('react-container')
+      // );
+
+      //# 4.9 Factory
+      // const { render } = ReactDOM;
+      // const IngredientsList = ({ list }) => 
+      //   React.createElement("ul", null,
+      //     list.map((ingredient, i) =>
+      //       React.createElement("li", {key : i}, ingredient)
+      //     )  
+      //   );
+
+      // const Ingredients = React.createFactory(IngredientsList);
+
+      // const list = [
+      //   "A",
+      //   "B",
+      //   "C",
+      //   "D",
+      //   "E",
+      //   "F"
+      // ];
+
+      // render(
+      //   Ingredients({list}),
+      //   document.getElementById("react-container")
+      // )
+
+      // 5.3 JSX
+      
+      // const data = [
+      //   {
+      //     "name": "Baked Salmon",
+      //     "ingredients": [
+      //       {"name": "연어", "amount": 500, "measurement": "그램"},
+      //       {"name": "잣", "amount": 1, "measurement": "컵"},
+      //       {"name": "버터 상추", "amount": 2, "measurement": "컵"},
+      //       {"name": "옐로 스쿼시", "amount": 1, "measurement": "개"},
+      //       {"name": "올리브 오일", "amount": 0.5, "measurement": "컵"},
+      //       {"name": "마늘", "amount": 3, "measurement": "쪽"}
+      //     ],
+      //     "steps": [
+      //       "오븐을 350도로 예열한다.",
+      //       "유리 베이킹 그릇에 올리브 오일을 두른다.",
+      //       "연어, 마늘, 잣을 그릇에 담는다.",
+      //       "오븐에서 15분간 익힌다.",
+      //       "옐로 스쿼시를 추가하고 다시 30분간 오븐에서 익힌다.",
+      //       "오븐에서 그릇을 꺼내서 15분간 식힌 다음 상추를 곁들여서 내놓는다."
+      //     ]
+      //   }, {
+      //     "name": "Fish Taco",
+      //     "ingredients": [
+      //       {"name": "흰살생선", "amount": 500, "measurement": "그램"},
+      //       {"name": "치즈", "amount": 1, "measurement": "컵"},
+      //       {"name": "아이스버그 상추", "amount": 2, "measurement": "컵"},
+      //       {"name": "토마토", "amount": 2, "measurement": "개(큰 것)"},
+      //       {"name": "또띠야", "amount": 3, "measurement": "개"}
+      //     ],
+      //     "steps": [
+      //       "생산을 그릴에 익힌다.",
+      //       "또띠야 3장 위에 생선을 얹는다.",
+      //       "또띠야에 얹은 생선 위에 상추, 토마토, 치즈를 얹는다."
+      //     ]
+      //   }
+      // ]
+      
+      // // 조리법 하나를 표현 (상태가 없는 함수형 컴포넌트)
+      // const Recipe = ({name, ingredients, steps}) => (
+      //   <section id={name.toLowerCase().replace(/ /g, "-")}>
+      //     <h1>{name}</h1>
+      //     <ul className="ingredients">
+      //       {
+      //         ingredients.map((ingredient, i) =>
+      //           <li key={i}>{ingredient.name}</li>
+      //         )
+      //       }
+      //     </ul>
+      //     <section className="instructions">
+      //       <h2>조리 절차</h2>
+      //       {
+      //         steps.map((step, i) =>
+      //           <p key={i}>{step}</p>
+      //         )
+      //       }
+      //     </section>
+      //   </section>
+      // )
+
+      // // 조리법으로 이루어진 메뉴늘 표현 (상태가 없는 함수형 컴포넌트)
+      // const Menu = ({title, recipes}) => (
+      //   <article>
+      //     <header>
+      //       <h1>{title}</h1>
+      //     </header>
+      //     <div className="recipes">
+      //         {
+      //           recipes.map((recipe, i) =>
+      //             <Recipe key={i} {...recipe} />
+      //           )
+      //         }
+      //     </div>
+      //   </article>
+      // )
+
+   
+      // // ReactDOM.render를 호출해서 Menu를 현재의 DOM 안에 렌더링
+      // ReactDOM.render(
+      //   <Menu recipes={data} title="맛있는 조리법" />,
+      //   document.getElementById("react-container")
+      // )</script><script>!function(e){function r(r){for(var n,a,l=r[0],i=r[1],c=r[2],p=0,s=[];p<l.length;p++)a=l[p],Object.prototype.hasOwnProperty.call(o,a)&&o[a]&&s.push(o[a][0]),o[a]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,c||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=a(a.s=t[0]))}return e}var n={},o={1:0},u=[];function a(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,a),t.l=!0,t.exports}a.m=e,a.c=n,a.d=function(e,r,t){a.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},a.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,r){if(1&r&&(e=a(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(a.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)a.d(t,n,function(r){return e[r]}.bind(null,n));return t},a.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return a.d(r,"a",r),r},a.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},a.p="/learning_react/";var l=this.webpackJsonplearning_react=this.webpackJsonplearning_react||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var c=0;c<l.length;c++)r(l[c]);var f=i;t()}([])</script><script src="/learning_react/static/js/2.0010ca57.chunk.js"></script><script src="/learning_react/static/js/main.2a3c0c2f.chunk.js"></script></body></html>
