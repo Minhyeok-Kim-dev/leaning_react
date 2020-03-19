@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import d3 from 'd3'
-
+import * as d3 from 'd3'
+import Canvas from './Canvas'
+import TimelineDot from './TimelineDot'
 
 class Timeline extends Component {
+
   constructor({data=[]}) {
-    const time = d3.extent(data.map(d => d.year))
-    const range = [10, 500]
+    const times = d3.extent(data.map(d => d.year))
+    const range = [50, 450]
     super({data})
+
+    this.scale = d3.time.scale().domain(times).range(range)
     this.state = {data, times, range}
   }
 
@@ -14,7 +18,6 @@ class Timeline extends Component {
     let group
     const { data, times, range } = this.state
     const { target } = this.refs
-    const scale = d3.time.scale().domain(times).range(range)
 
     d3.select(target)
       .append('svg')
@@ -28,7 +31,7 @@ class Timeline extends Component {
               .append('g')
               .attr(
                 'transform',
-                (d, i) => 'translate(' + scale(d.year) + ', 0)'
+                (d, i) => 'translate(' + this.scale(d.year) + ', 0)'
               )
 
     group.append('circle')
@@ -45,9 +48,20 @@ class Timeline extends Component {
   }
 
   render() {
+    const { data } = this.state
+    const { scale } = this
     return (
       <div className="timeline">
-        <h1>{this.props.name} 타임라인</h1>
+        <h1>{this.props.name} Timeline</h1>
+{/*         
+        <Canvas>
+          {data.map((d, i) =>
+            <TimelineDot position={scale(d.year)}
+                         text={`${d.year} - ${d.event}`}
+            />
+          )}
+        </Canvas> */}
+
         <div ref="target"></div>
       </div>
     )

@@ -8,6 +8,11 @@ import CountryList from './CountryList'
 import Timeline from './Timeline'
 
 import './Chapter7.css';
+import CountryDropDown from './CountryDropDown'
+import PopupButton from './PopupButton'
+
+import CountdownFlux from './CountdownFlux'
+import Countdown from './Countdown'
 
 const historicDatesForSkiing = [{
   year: 1879,
@@ -36,14 +41,31 @@ const historicDatesForSkiing = [{
 }]
 
 class Chapter7 extends Component {
+  // render() {
+  //   return (
+  //     <HiddenMessages />
+  //     <Children />
+  //     <CountryList />
+  //     <Timeline name="스키의 역사" data={historicDatesForSkiing} />
+  //     <CountryDropDown selected="Gabon" />
+
+  //     <PopupButton hidden={true} txt="팝업 토글">
+  //       <h1>숨겨진 콘텐츠</h1>
+  //       <p>이 콘텐츠는 처음에 숨겨져 있습니다.</p>
+  //     </PopupButton>
+  //   )
+  // }
+
+  // flux
+  
   render() {
     return (
-      //<HiddenMessages />
-      //<Children />
-      //<CountryList />
-      <Timeline name="스키의 역사" data={historicDatesForSkiing} />
+      <h1></h1>
+      //<Countdown count={10} />
+      //<CountdownFlux />
     )
   }
+
 }
 
 export default Chapter7
